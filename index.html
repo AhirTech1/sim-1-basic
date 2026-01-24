@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeUp | Student Premium Portal</title>
+    <meta name="description" content="Access premium study materials and boost your grades.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login Section -->
+    <div id="login-view" class="auth-container glass">
+        <h1>GradeUp</h1>
+        <p>Unlock your academic potential.</p>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Any password works" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="login-btn">Sign In</button>
+        </form>
+    </div>
+
+    <!-- Dashboard Section -->
+    <div id="dashboard-view" class="container hidden">
+        <header class="header">
+            <div>
+                <h1>Welcome Back, <span id="display-name">Student</span>!</h1>
+                <p style="color: var(--text-muted)">Your learning journey continues here.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div id="user-status" class="user-badge">
+                    <span id="account-type" class="premium-tag hidden">Premium</span>
+                    <span class="status-dot" style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
+                    <span style="font-size: 0.9rem">Online</span>
+                </div>
+                <button class="logout-btn" id="logout-btn">Log Out</button>
+            </div>
+        </header>
+
+        <!-- Upgrade Prompt -->
+        <div id="upgrade-section" class="upgrade-banner">
+            <div>
+                <h2>Ready for the next level?</h2>
+                <p>Get unlimited access to expert notes, exam tips, and exclusive video resources.</p>
+            </div>
+            <button class="btn btn-primary" id="upgrade-btn">Upgrade to Premium</button>
+        </div>
+
+        <!-- Free Materials -->
+        <div class="section">
+            <h2 class="section-title"><span>📚</span> Free Study Materials</h2>
+            <div class="content-grid">
+                <div class="study-card glass">
+                    <div class="icon">📝</div>
+                    <h3>Introduction to Algebra</h3>
+                    <p>Basic concepts of variables, equations, and expressions. Perfect for beginners.</p>
+                </div>
+                <div class="study-card glass">
+                    <div class="icon">🔬</div>
+                    <h3>Biology 101 Notes</h3>
+                    <p>Brief overview of cell structures and basic genetic principles.</p>
+                </div>
+                <div class="study-card glass">
+                    <div class="icon">🌍</div>
+                    <h3>History Timeline</h3>
+                    <p>A chronological guide to major world events of the 20th century.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Premium Materials -->
+        <div class="section">
+            <h2 class="section-title"><span>💎</span> Premium Study Materials</h2>
+            <div class="content-grid">
+                <div id="premium-math" class="study-card glass is-locked">
+                    <div class="icon">📈</div>
+                    <h3>Advanced Calculus Pro</h3>
+                    <p>Step-by-step solutions to complex integration and differentiation problems.</p>
+                    <div class="locked-overlay">
+                        <span>🔒 Premium Only</span>
+                    </div>
+                </div>
+                <div id="premium-physics" class="study-card glass is-locked">
+                    <div class="icon">⚡</div>
+                    <h3>Quantum Physics Guide</h3>
+                    <p>In-depth analysis of wave-particle duality and Schrödinger's equation.</p>
+                    <div class="locked-overlay">
+                        <span>🔒 Premium Only</span>
+                    </div>
+                </div>
+                <div id="premium-chem" class="study-card glass is-locked">
+                    <div class="icon">🧪</div>
+                    <h3>Organic Chemistry Hacks</h3>
+                    <p>Master reaction mechanisms and nomenclature with our shortcut guide.</p>
+                    <div class="locked-overlay">
+                        <span>🔒 Premium Only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Premium Section -->
+        <div id="hidden-resources" class="section hidden">
+            <h2 class="section-title" style="color: #fbbf24;"><span>🔥</span> Exclusive Premium Resources</h2>
+            <div class="content-grid">
+                <div class="study-card glass" style="border-color: #fbbf24;">
+                    <div class="icon">🎥</div>
+                    <h3>Expert Video Lectures</h3>
+                    <p>Direct access to 50+ hours of video content from top university professors.</p>
+                </div>
+                <div class="study-card glass" style="border-color: #fbbf24;">
+                    <div class="icon">🎯</div>
+                    <h3>Exam Prediction Sets</h3>
+                    <p>Carefully curated questions that are most likely to appear in upcoming finals.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
