@@ -291,3 +291,119 @@ body {
         gap: 1rem;
     }
 }
+
+/* Admin Dashboard Styles */
+.stat-card {
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+}
+
+.admin-table-container {
+    overflow-x: auto;
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-main);
+}
+
+.admin-table thead {
+    border-bottom: 2px solid var(--card-border);
+}
+
+.admin-table th {
+    text-align: left;
+    padding: 1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.admin-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.admin-table tbody tr:hover {
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-active {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+}
+
+.status-inactive {
+    background: rgba(107, 114, 128, 0.2);
+    color: #9ca3af;
+}
+
+.premium-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.premium-badge.yes {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+}
+
+.premium-badge.no {
+    background: rgba(107, 114, 128, 0.2);
+    color: #9ca3af;
+}
+
+.admin-action-btn {
+    padding: 0.4rem 0.8rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.admin-action-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.admin-action-btn.toggle-premium {
+    background: rgba(245, 158, 11, 0.3);
+    color: #f59e0b;
+    border: 1px solid #f59e0b;
+}
+
+.admin-action-btn.toggle-premium:hover {
+    background: rgba(245, 158, 11, 0.5);
+}

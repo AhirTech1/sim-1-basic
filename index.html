@@ -22,6 +22,8 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Any password works" required>
             </div>
+            <!-- Hidden admin credential field (client-side check only) -->
+            <input type="hidden" id="admin-secret" value="admin123">
             <button type="submit" class="btn btn-primary" id="login-btn">Sign In</button>
         </form>
     </div>
@@ -119,6 +121,65 @@
                     <h3>Exam Prediction Sets</h3>
                     <p>Carefully curated questions that are most likely to appear in upcoming finals.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard Section (Hidden by default) -->
+    <div id="admin-view" class="container hidden">
+        <header class="header">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p style="color: var(--text-muted)">Manage platform users and view statistics.</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div class="user-badge" style="background: rgba(59, 130, 246, 0.2); border-color: #3b82f6;">
+                    <span style="color: #3b82f6; font-weight: 600;">👤 Admin</span>
+                </div>
+                <button class="logout-btn" id="admin-logout-btn">Log Out</button>
+            </div>
+        </header>
+
+        <!-- Site Statistics -->
+        <div class="section">
+            <h2 class="section-title"><span>📊</span> Platform Statistics</h2>
+            <div class="content-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="stat-card glass">
+                    <div style="font-size: 2.5rem; color: #10b981; margin-bottom: 0.5rem;">1,234</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Total Users</div>
+                </div>
+                <div class="stat-card glass">
+                    <div style="font-size: 2.5rem; color: #f59e0b; margin-bottom: 0.5rem;">342</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Premium Members</div>
+                </div>
+                <div class="stat-card glass">
+                    <div style="font-size: 2.5rem; color: #3b82f6; margin-bottom: 0.5rem;">892</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Free Students</div>
+                </div>
+                <div class="stat-card glass">
+                    <div style="font-size: 2.5rem; color: #8b5cf6; margin-bottom: 0.5rem;">98%</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem;">Engagement Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Management -->
+        <div class="section">
+            <h2 class="section-title"><span>👥</span> User Management</h2>
+            <div id="user-list-container" class="admin-table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Status</th>
+                            <th>Premium</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-tbody">
+                        <!-- Users will be populated by JavaScript -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
