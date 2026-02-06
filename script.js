@@ -65,18 +65,18 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const renderAdminUserTable = () => {
         adminUsersTableBody.innerHTML = '';
-        
+
         mockUsers.forEach(user => {
             const row = document.createElement('tr');
-            
+
             // Status Badge
             const statusClass = user.status === 'active' ? 'status-active' : 'status-inactive';
             const statusText = user.status.charAt(0).toUpperCase() + user.status.slice(1);
-            
+
             // Premium Badge
             const premiumClass = user.isPremium ? 'yes' : 'no';
             const premiumText = user.isPremium ? 'Yes' : 'No';
-            
+
             row.innerHTML = `
                 <td>${user.username}</td>
                 <td><span class="status-badge ${statusClass}">${statusText}</span></td>
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </button>
                 </td>
             `;
-            
+
             adminUsersTableBody.appendChild(row);
         });
 
@@ -177,17 +177,83 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * Handle student upgrade button
+     * Valid premium codes for access
+     */
+    const validPremiumCodes = [
+        'PREMIUM2024',
+        'STUDENT100',
+        'UNLOCK999',
+        'GRADEUP2024',
+        'STUDY123'
+    ];
+
+    /**
+     * Handle student upgrade button - show modal
      */
     upgradeBtn.addEventListener('click', () => {
-        const confirmUpgrade = confirm(
-            "Would you like to upgrade to Premium for access to all resources?"
-        );
-        if (confirmUpgrade) {
+        const modal = document.getElementById('premium-modal');
+        const codeInput = document.getElementById('premium-code');
+        const errorDiv = document.getElementById('code-error');
+
+        // Show modal
+        modal.classList.remove('hidden');
+
+        // Clear previous input and errors
+        codeInput.value = '';
+        errorDiv.classList.add('hidden');
+        errorDiv.textContent = '';
+
+        // Focus on input
+        setTimeout(() => codeInput.focus(), 100);
+    });
+
+    /**
+     * Handle premium code form submission
+     */
+    const premiumCodeForm = document.getElementById('premium-code-form');
+    premiumCodeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const codeInput = document.getElementById('premium-code');
+        const errorDiv = document.getElementById('code-error');
+        const enteredCode = codeInput.value.trim().toUpperCase();
+
+        // Validate code
+        if (validPremiumCodes.includes(enteredCode)) {
+            // Valid code - grant premium access
             state.isPremium = true;
             saveState();
             updateUI();
-            alert("Congratulations! You are now a Premium Member.");
+
+            // Close modal
+            document.getElementById('premium-modal').classList.add('hidden');
+
+            // Show success message
+            alert("🎉 Congratulations! You are now a Premium Member.");
+        } else {
+            // Invalid code - show error
+            errorDiv.textContent = '❌ Invalid code. Please check and try again.';
+            errorDiv.classList.remove('hidden');
+            codeInput.value = '';
+            codeInput.focus();
+        }
+    });
+
+    /**
+     * Handle modal cancel button
+     */
+    const cancelModalBtn = document.getElementById('cancel-modal');
+    cancelModalBtn.addEventListener('click', () => {
+        document.getElementById('premium-modal').classList.add('hidden');
+    });
+
+    /**
+     * Close modal when clicking outside
+     */
+    const modal = document.getElementById('premium-modal');
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
         }
     });
 

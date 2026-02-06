@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <meta name="description" content="Access premium study materials and boost your grades.">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Login Section -->
@@ -38,7 +40,8 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div id="user-status" class="user-badge">
                     <span id="account-type" class="premium-tag hidden">Premium</span>
-                    <span class="status-dot" style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
+                    <span class="status-dot"
+                        style="width: 8px; height: 8px; background: #22c55e; border-radius: 50%;"></span>
                     <span style="font-size: 0.9rem">Online</span>
                 </div>
                 <button class="logout-btn" id="logout-btn">Log Out</button>
@@ -52,6 +55,27 @@
                 <p>Get unlimited access to expert notes, exam tips, and exclusive video resources.</p>
             </div>
             <button class="btn btn-primary" id="upgrade-btn">Upgrade to Premium</button>
+        </div>
+
+        <!-- Premium Code Modal -->
+        <div id="premium-modal" class="modal-overlay hidden">
+            <div class="modal-container glass">
+                <h2>Enter Premium Code</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Enter your unique premium access code to
+                    unlock all features.</p>
+                <form id="premium-code-form">
+                    <div class="form-group">
+                        <label for="premium-code">Premium Code</label>
+                        <input type="text" id="premium-code" placeholder="Enter code" required autocomplete="off">
+                    </div>
+                    <div id="code-error" class="error-message hidden"></div>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button type="submit" class="btn btn-primary" style="flex: 1;">Verify Code</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-modal"
+                            style="flex: 1;">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
         <!-- Free Materials -->
@@ -186,4 +210,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
